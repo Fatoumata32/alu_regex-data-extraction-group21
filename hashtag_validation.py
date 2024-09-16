@@ -1,14 +1,13 @@
 import re
 
-def is_valid_hashtag(hashtag_str):
-    pattern = r'\#[a-zA-Z0-9_]+'
-    return re.match(pattern, hashtag_str) is not None
+def is_valid_hashtag(hashtag):
+    pattern = r'^#[a-zA-Z0-9_]+$'
+    return re.match(pattern, hashtag) is not None
 
-# Example Usage
-hashtag_1 = "#example"
-hashtag_2 = "#ThisIsAHashtag"
-hashtag_3 = "invalid-hashtag"
+user_input = input("Enter the hashtag to validate: ")
 
-print(f"{hashtag_1} is valid hashtag: {is_valid_hashtag(hashtag_1)}")
-print(f"{hashtag_2} is valid hashtag: {is_valid_hashtag(hashtag_2)}")
-print(f"{hashtag_3} is valid hashtag: {is_valid_hashtag(hashtag_3)}")
+if is_valid_hashtag(user_input):
+    print(f"{user_input} is a valid hashtag.")
+else:
+    print(f"{user_input} is an invalid hashtag.")
+
